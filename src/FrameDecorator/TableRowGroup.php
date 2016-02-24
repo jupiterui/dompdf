@@ -49,6 +49,9 @@ class TableRowGroup extends AbstractFrameDecorator
 
         // Remove child & all subsequent rows from the cellmap
         $cellmap = $this->get_parent()->get_cellmap();
+        while($child->get_node()->getAttribute("dontbreak")){ //
+            $child = $child->get_prev_sibling();
+        }
         $iter = $child;
 
         while ($iter) {
